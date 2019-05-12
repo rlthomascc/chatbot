@@ -10,15 +10,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: [1, 3, 2, 3, 2, 1],
     };
   }
 
   sendMessage(e) {
     const { data } = this.state;
     data.push(e);
+    console.log(data, 'data');
   }
 
+
+  // CREATE A CHATBOT MESSAGE COMPONENT THAT ASKS QUESTIONS
+  // CREATE A CHATBOT DISPLAY THAT DISPLAYS THOSE MESSAGES
+  // CREATE A FUNCTION THAT CHECKS THE MESSAGES WITH THE QUESTIONS AND SENDS.
+  // HOLD ALL MESSAGES AND CONVO IN A CONVO STATE
   render() {
     const { data } = this.state;
     return (
