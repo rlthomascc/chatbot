@@ -47,13 +47,30 @@ class App extends Component {
   botResponse(e) {
     const { convo } = this.state;
     const newArr = convo;
+    const arr = e.split(' ');
     const replies = [{
-      keywords: 'Hello world',
+      keywords: 'what is your name?',
       reply: 'My name is Chatbot.',
+    },
+    {
+      keywords: 'what do you do?',
+      reply: 'I respond to your questions, simplifying your usability.',
     }];
-
-    console.log(replies[0].keywords.includes(e));
-    console.log(replies[0].keywords);
+    replies.forEach((elem, i) => {
+      arr.forEach((word, i) => {
+        // ITERATE THROUGH THE WORDS, SEARCH THE WORDS AND CONNECT THEM WITH THE QUESTIONS ABOVE,
+        // TALLY THE WORDS TO THE QUESTION, WHO EVER HAS THE MOST TALLIES IS THE REPLY.
+        if (elem.keywords.includes(word)) {
+          setTimeout(() => {
+            newArr.push({ user: 'Bot', message: elem.reply });
+            this.setState({
+              convo: newArr,
+            });
+          }, 1000);
+        }
+        console.log(elem.keywords.includes(word.toLowerCase()));
+      });
+    });
   }
 
 
