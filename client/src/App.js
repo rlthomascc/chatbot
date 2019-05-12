@@ -22,12 +22,12 @@ class App extends Component {
     const { convo } = this.state;
     setTimeout(() => {
       const newArr = convo;
-      newArr.push({ user: 'Bot', message: 'Hellooooooooo' });
+      newArr.push({ user: 'Chatbot', message: 'Hellooooooooo' });
       this.setState({ convo: newArr });
     }, 1500);
     setTimeout(() => {
       const newArr = convo;
-      newArr.push({ user: 'Bot', message: 'How may I help you?' });
+      newArr.push({ user: 'Chatbot', message: 'How may I help you?' });
       this.setState({ convo: newArr });
     }, 2500);
   }
@@ -62,7 +62,7 @@ class App extends Component {
         // TALLY THE WORDS TO THE QUESTION, WHO EVER HAS THE MOST TALLIES IS THE REPLY.
         if (elem.keywords.includes(word)) {
           setTimeout(() => {
-            newArr.push({ user: 'Bot', message: elem.reply });
+            newArr.push({ user: 'Chatbot', message: elem.reply });
             this.setState({
               convo: newArr,
             });

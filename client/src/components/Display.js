@@ -6,6 +6,15 @@
 import React from 'react';
 
 const Display = (props) => {
+  const header = () => (
+    <div className="topBanner">
+      <h5>
+Welcome to Chatbot!
+        {' '}
+        <img src="https://img.icons8.com/windows/420/bot.png" width="30px" />
+      </h5>
+    </div>
+  );
   const disp = () => {
     const { messages } = props;
     return (
@@ -17,7 +26,10 @@ const Display = (props) => {
   };
 
   return (
-    disp()
+    <div>
+      {header()}
+      {disp()}
+    </div>
   );
 };
 
