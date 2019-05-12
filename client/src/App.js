@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import User from './components/User.js';
 import Display from './components/Display.js';
 import Bot from './components/Bot.js';
+import returnResponse from '../../helpers/ai';
 
 class App extends Component {
   constructor(props) {
@@ -22,12 +23,12 @@ class App extends Component {
     const { convo } = this.state;
     setTimeout(() => {
       const newArr = convo;
-      newArr.push({ user: 'Chatbot', message: 'Hellooooooooo' });
+      newArr.unshift({ user: 'Chatbot', message: 'Hellooooooooo', timeStamp: Date.now() });
       this.setState({ convo: newArr });
     }, 1500);
     setTimeout(() => {
       const newArr = convo;
-      newArr.push({ user: 'Chatbot', message: 'How may I help you?' });
+      newArr.unshift({ user: 'Chatbot', message: 'How may I help you?', timeStamp: Date.now() });
       this.setState({ convo: newArr });
     }, 2500);
   }
@@ -36,7 +37,7 @@ class App extends Component {
   sendMessage(e) {
     const { convo, currentMessage } = this.state;
     const newArr = convo;
-    newArr.push({ user: 'You', message: e });
+    newArr.unshift({ user: 'You', message: e, timeStamp: Date.now() });
     this.setState({
       convo: newArr,
       currentMessage: e,
@@ -48,33 +49,22 @@ class App extends Component {
     const { convo } = this.state;
     const newArr = convo;
     const arr = e.split(' ');
-    const replies = [{
-      keywords: 'what is your name?',
-      reply: 'My name is Chatbot.',
-    },
-    {
-      keywords: 'what do you do?',
-      reply: 'I respond to your questions, helping you navigate through our service.',
-    }];
-    replies.forEach((elem) => {
-      arr.forEach((word) => {
-        // ITERATE THROUGH THE WORDS, SEARCH THE WORDS AND CONNECT THEM WITH THE QUESTIONS ABOVE,
-        // TALLY THE WORDS TO THE QUESTION, WHO EVER HAS THE MOST TALLIES IS THE REPLY.
-        if (elem.keywords.includes(word)) {
-          setTimeout(() => {
-            newArr.push({ user: 'Chatbot', message: elem.reply });
-            this.setState({
-              convo: newArr,
-            });
-          }, 1000);
-        }
-        console.log(elem.keywords.includes(word.toLowerCase()));
-      });
-    });
+    const bringItBack = (obj) => {
+      // Sort incoming replies
+      const replies = obj.sort((a, b) => a.count - b.count);
+      setTimeout(() => {
+        // Take last reply (which is the max count reply) and send to client
+        newArr.unshift({ user: 'Chatbot', message: replies[replies.length - 1].reply, timeStamp: Date.now() });
+        this.setState({
+          convo: newArr,
+        });
+      }, 1000);
+    };
+    returnResponse(arr, bringItBack);
+    console.log(convo);
   }
 
 
-  // CREATE A FUNCTION THAT CHECKS THE MESSAGES WITH THE QUESTIONS AND SENDS.
   render() {
     const { convo, currentMessage } = this.state;
     return (

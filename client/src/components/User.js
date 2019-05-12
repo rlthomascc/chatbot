@@ -20,7 +20,7 @@ const User = (props) => {
           <input className="form-control" id="question" type="text" placeholder="Ask me a question.." required />
         </div>
         <div>
-          <button className="btn btn-success">Submit</button>
+          <button className="btn btn-success">Send</button>
         </div>
       </form>
     </div>
