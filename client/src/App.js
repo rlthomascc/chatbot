@@ -4,7 +4,7 @@
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
-import Chatbot from './components/Chatbot.js';
+import User from './components/User.js';
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +21,14 @@ class App extends Component {
   }
 
 
-  // CREATE A CHATBOT MESSAGE COMPONENT THAT ASKS QUESTIONS
-  // CREATE A CHATBOT DISPLAY THAT DISPLAYS THOSE MESSAGES
+  // CREATE A User MESSAGE COMPONENT THAT ASKS QUESTIONS
+  // CREATE A User DISPLAY THAT DISPLAYS THOSE MESSAGES
   // CREATE A FUNCTION THAT CHECKS THE MESSAGES WITH THE QUESTIONS AND SENDS.
   // HOLD ALL MESSAGES AND CONVO IN A CONVO STATE
   render() {
     const { data } = this.state;
     return (
-      <Chatbot sendMessage={this.sendMessage.bind(this)} messages={data} />
+      <User sendMessage={this.sendMessage.bind(this)} messages={data} />
     );
   }
 }
