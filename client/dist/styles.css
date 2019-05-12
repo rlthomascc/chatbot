@@ -6,21 +6,44 @@ body {
     width: 50%;
 }
 
-#container {
-    background-color: red;
-    padding: 10px 10px 10px 10px;
+
+.mainContainer {
+    margin-top: 200px;
 }
 
-#bubbleGuest {
+.userContainer {
+    width: 30%;
+    border: solid #d3d3d3 2px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #d3d3d3;
+    padding: 20px 20px 20px 20px;
+    margin: 0 auto;
+}
+.displayContainer {
+    overflow-y: scroll;
+    width: 30%;
+    border: solid #d3d3d3 2px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px #d3d3d3;
+    padding: 20px 20px 20px 20px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+#userBubble {
     width: 50%;
     text-align: right;
     float: right;
+    padding: 15px 15px 15px 15px;
+    border-radius: 10px;
     background-color: rgba(0, 162, 255, 0.651);
 }
 
-#bubbleBot {
+#botBubble {
     width: 50%;
     text-align: left;
     float: left;
+    padding: 15px 15px 15px 15px;
+    border-radius: 10px;
     background-color: rgba(0, 255, 21, 0.651);
 }

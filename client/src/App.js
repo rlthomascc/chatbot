@@ -11,30 +11,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      convo: [],
     };
   }
 
   sendMessage(e) {
-    const { data } = this.state;
-    const newArr = data;
-    newArr.push(e);
+    const { convo } = this.state;
+    const newArr = convo;
+    newArr.push({ user: 'John Doe', message: e });
     this.setState({
-      data: newArr,
+      convo: newArr,
     });
-    console.log(data, 'data');
+    console.log(convo, 'convo');
   }
 
 
-  // CREATE A User MESSAGE COMPONENT THAT ASKS QUESTIONS
-  // CREATE A User DISPLAY THAT DISPLAYS THOSE MESSAGES
   // CREATE A FUNCTION THAT CHECKS THE MESSAGES WITH THE QUESTIONS AND SENDS.
-  // HOLD ALL MESSAGES AND CONVO IN A CONVO STATE
   render() {
-    const { data } = this.state;
+    const { convo } = this.state;
     return (
-      <div>
-        <Display messages={data} />
+      <div className="mainContainer">
+        <Display messages={convo} />
         <User sendMessage={this.sendMessage.bind(this)} />
       </div>
     );

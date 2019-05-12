@@ -11,7 +11,8 @@ const Display = (props) => {
     console.log(messages, 'MESSAGES');
     return (
       <div className="displayContainer">
-        {messages.map((elem, i) => <p key={i}>{elem}</p>)}
+        {/* <input type="text" className="form-display" id="display" /> */}
+        {messages.map((elem, i) => <p id={elem.user === 'John Doe' ? 'userBubble' : 'botBubble'} key={i}>{`${elem.user}: ${elem.message}`}</p>)}
       </div>
     );
   };
