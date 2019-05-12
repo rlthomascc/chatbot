@@ -1,0 +1,26 @@
+body {
+    font-family: verdana;
+}
+
+.card {
+    width: 50%;
+}
+
+#container {
+    background-color: red;
+    padding: 10px 10px 10px 10px;
+}
+
+#bubbleGuest {
+    width: 50%;
+    text-align: right;
+    float: right;
+    background-color: rgba(0, 162, 255, 0.651);
+}
+
+#bubbleBot {
+    width: 50%;
+    text-align: left;
+    float: left;
+    background-color: rgba(0, 255, 21, 0.651);
+}
