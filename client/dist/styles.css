@@ -33,17 +33,17 @@ body {
 #userBubble {
     width: 50%;
     text-align: right;
-    float: right;
     padding: 15px 15px 15px 15px;
     border-radius: 10px;
     background-color: rgba(0, 162, 255, 0.651);
+    text-align: start;
 }
 
 #botBubble {
     width: 50%;
     text-align: left;
-    float: left;
     padding: 15px 15px 15px 15px;
     border-radius: 10px;
     background-color: rgba(0, 255, 21, 0.651);
+    text-align: start;
 }

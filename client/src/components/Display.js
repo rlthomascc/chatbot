@@ -8,11 +8,10 @@ import React from 'react';
 const Display = (props) => {
   const disp = () => {
     const { messages } = props;
-    console.log(messages, 'MESSAGES');
     return (
       <div className="displayContainer">
         {/* <input type="text" className="form-display" id="display" /> */}
-        {messages.map((elem, i) => <p id={elem.user === 'John Doe' ? 'userBubble' : 'botBubble'} key={i}>{`${elem.user}: ${elem.message}`}</p>)}
+        {messages.map((elem, i) => <p id={elem.user === 'You' ? 'userBubble' : 'botBubble'} key={i}>{`${elem.user}: ${elem.message}`}</p>)}
       </div>
     );
   };
