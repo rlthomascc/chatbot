@@ -54,10 +54,10 @@ class App extends Component {
     },
     {
       keywords: 'what do you do?',
-      reply: 'I respond to your questions, simplifying your usability.',
+      reply: 'I respond to your questions, helping you navigate through our service.',
     }];
-    replies.forEach((elem, i) => {
-      arr.forEach((word, i) => {
+    replies.forEach((elem) => {
+      arr.forEach((word) => {
         // ITERATE THROUGH THE WORDS, SEARCH THE WORDS AND CONNECT THEM WITH THE QUESTIONS ABOVE,
         // TALLY THE WORDS TO THE QUESTION, WHO EVER HAS THE MOST TALLIES IS THE REPLY.
         if (elem.keywords.includes(word)) {
