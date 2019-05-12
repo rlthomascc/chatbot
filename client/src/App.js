@@ -33,15 +33,6 @@ class App extends Component {
   }
 
 
-  // initialUpdate() {
-  //   const { convo } = this.state;
-  //   const newArr = convo;
-  //   newArr.push({ user: 'Bot', message: 'Hellooooo, how may I help you?' });
-  //   setTimeout(this.setState({
-  //     convo: newArr,
-  //   }), 1000);
-  // }
-
   sendMessage(e) {
     const { convo, currentMessage } = this.state;
     const newArr = convo;
@@ -50,17 +41,19 @@ class App extends Component {
       convo: newArr,
       currentMessage: e,
     });
-    this.sendBot(e);
+    this.botResponse(e);
   }
 
-  sendBot(e) {
+  botResponse(e) {
     const { convo } = this.state;
-    setTimeout(() => {
-      const newArr = convo;
-      newArr.push({ user: 'Bot', message: 'What?' });
-      this.setState({ convo: newArr });
-      console.log('tets');
-    }, 2000);
+    const newArr = convo;
+    const replies = [{
+      keywords: 'Hello world',
+      reply: 'My name is Chatbot.',
+    }];
+
+    console.log(replies[0].keywords.includes(e));
+    console.log(replies[0].keywords);
   }
 
 
@@ -70,7 +63,7 @@ class App extends Component {
     return (
       <div className="mainContainer">
         <Display messages={convo} />
-        <User sendMessage={this.sendMessage.bind(this)} sendBot={this.sendBot.bind(this)} />
+        <User sendMessage={this.sendMessage.bind(this)} />
         <Bot message={currentMessage} />
       </div>
     );
