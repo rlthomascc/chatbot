@@ -5,18 +5,23 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
 import User from './components/User.js';
+import Display from './components/Display.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [1, 3, 2, 3, 2, 1],
+      data: [],
     };
   }
 
   sendMessage(e) {
     const { data } = this.state;
-    data.push(e);
+    const newArr = data;
+    newArr.push(e);
+    this.setState({
+      data: newArr,
+    });
     console.log(data, 'data');
   }
 
@@ -28,7 +33,10 @@ class App extends Component {
   render() {
     const { data } = this.state;
     return (
-      <User sendMessage={this.sendMessage.bind(this)} messages={data} />
+      <div>
+        <Display messages={data} />
+        <User sendMessage={this.sendMessage.bind(this)} />
+      </div>
     );
   }
 }

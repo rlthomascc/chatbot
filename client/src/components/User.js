@@ -10,7 +10,6 @@ const User = (props) => {
     const { sendMessage } = props;
     e.preventDefault();
     sendMessage(e.target.question.value);
-    this.render();
   };
 
 
