@@ -2,12 +2,12 @@
 
 const returnResponse = (arr, cb) => {
   const replies = [{
-    keywords: 'what is your name name name name call you go by alias yourself yourself yourself ?',
+    keywords: 'what is your name name name name call you go by alias yourself yourself yourself who are you ?',
     reply: 'My name is Chatbot.',
     count: 0,
   },
   {
-    keywords: 'what do you do purpose reason ?',
+    keywords: 'what do you do purpose reason what do you do are you doing ?',
     reply: 'I respond to your questions, helping you navigate through our service.',
     count: 0,
   },
@@ -92,12 +92,12 @@ const returnResponse = (arr, cb) => {
     count: 0,
   },
   {
-    keywords: 'do you like food food food eat eat eat',
+    keywords: 'do you like food eat eat eat eat food food food',
     reply: 'i am a machine, i cant eat..',
     count: 0,
   },
   {
-    keywords: 'do you like drink drink drink what do you',
+    keywords: 'do you drink drink drink beer beer beer alcohol alcohol liquor liquor',
     reply: 'i am a machine, i cant drink...',
     count: 0,
   },
